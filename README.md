@@ -1,5 +1,7 @@
 # Api MicroService de cadastro de Usuário (Java 🚀 com Spring Boot 🍃, RabbitMQ 🐇 e Postgres 🐘)
 
+**Api email microservice : https://github.com/Thullyoo/email-microservice**
+
 **Utilizando CloudAMQP para RabbitMQ**
 
 Este projeto utiliza CloudAMQP para gerenciamento de mensagens com RabbitMQ. 
