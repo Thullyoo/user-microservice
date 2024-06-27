@@ -5,6 +5,7 @@ import com.thullyoo.user_microservice.entities.endereco.EnderecoResponse;
 import com.thullyoo.user_microservice.entities.user.User;
 import com.thullyoo.user_microservice.entities.user.UserRequest;
 import com.thullyoo.user_microservice.entities.user.UserResponse;
+import com.thullyoo.user_microservice.producers.UserProducer;
 import com.thullyoo.user_microservice.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,8 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
+
+    private final UserProducer userProducer;
 
     @Transactional
     public UserResponse registerUser(UserRequest request){
@@ -42,6 +45,8 @@ public class UserService {
         userRepository.save(user);
 
         UserResponse userResponse = new UserResponse(user.getUserId(), user.getNome(), user.getEmail(), user.getEnderecos().stream().map(endereco -> new EnderecoResponse(endereco.getRua(), endereco.getNumero(), endereco.getCidade(), endereco.getEstado(), endereco.getUser().getUserId())).toList());
+
+        userProducer.publishMessage(userResponse);
 
         return userResponse;
     }
