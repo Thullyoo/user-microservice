@@ -1,4 +1,4 @@
-# Api MicroService de cadastro de Usuário (Java 🚀 com Spring Boot 🍃 )
+# Api MicroService de cadastro de Usuário (Java 🚀 com Spring Boot 🍃, RabbitMQ 🐇 e Postgres 🐘)
 
 **Utilizando CloudAMQP para RabbitMQ**
 
@@ -22,7 +22,7 @@ Este é um projeto Java Spring boot, que consiste em uma API para cadastro de us
 
 3. Instale as dependências com o maven
 
-4. Coloque suas variáveis necessárias no application.properties, as seguintes varávies são necessárias:
+4. Coloque suas variáveis necessárias no application.properties, as seguintes variáveis são necessárias:
    - spring.datasource.username
    - spring.datasource.password
    - spring.rabbitmq.addresses
